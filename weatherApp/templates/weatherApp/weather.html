@@ -1,0 +1,44 @@
+<!-- howdy/templates/index.html -->
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Howdy!</title>
+    </head>
+    <body>
+        <h1>Wow check out them clouds!</h1>
+        <a href="/">Future</a>
+        <a href="/about/">About Me</a>
+        <a href="/weather/">Weather</a>
+        <a href="/feedback/">Feedback</a>
+        <a href="/future/">Feedback</a>
+        
+        <nav>
+            <form method="POST">
+                {% csrf_token %}
+                <div>
+                    <input type="text" name="latitude" placeholder="Latitude ...">
+                    <input type="text" name="longitude" placeholder="Longitude ...">
+                    <div>
+                        <button type="submit">Search</button>
+                    </div>
+                </div>
+            </form>
+        </nav>
+          <br> <br>
+          
+        <div>
+            {% if temp_min and temp_max and humidity %}
+            <div>
+                <div>
+                    <div>
+                        <h4><span>Min Temp :</span> {{temp_min}}</h4>
+                        <h4><span>Max Temp :</span> {{temp_max}}</h4>
+                        <h4><span>Humidity :</span> {{humidity}}</h4>
+                    </div>
+                </div>
+            {% endif %}
+            </div>
+        </div>
+    </body>
+</html>
