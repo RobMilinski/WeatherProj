@@ -1,0 +1,40 @@
+<!-- howdy/templates/index.html -->
+<!DOCTYPE html>
+{% extends 'base.html' %}
+
+{% block content %}
+<html>
+    <body>
+        <nav>
+            <form method="POST">
+                {% csrf_token %}
+                <div>
+                    <p>Enter City: <input type="text" name="city" placeholder="Enter your City ..."> or</p>
+                    <p>Enter your Longitude and Latitude:
+                        <input type="text" name="latitude" placeholder="Latitude ...">
+                        <input type="text" name="longitude" placeholder="Longitude ...">
+                    </p>
+                    <div>
+                        <button type="submit" class="btn btn-success">Search</button>
+                    </div>
+                </div>
+            </form>
+        </nav>
+            <br><br>
+        <div>
+            {% if name and temp_min and temp_max and humidity %}
+            <div>
+                <div>
+                    <div>
+                        <h4><span>Location :</span> {{name}}</h4>
+                        <h4><span>Min Temp :</span> {{temp_min}}</h4>
+                        <h4><span>Max Temp :</span> {{temp_max}}</h4>
+                        <h4><span>Humidity :</span> {{humidity}}</h4>
+                    </div>
+                </div>
+            {% endif %}
+            </div>
+        </div>
+    </body>
+</html>
+{% endblock %}
