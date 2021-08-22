@@ -5,5 +5,5 @@ from django.contrib import admin
 from .views import feedbackapp
 
 urlpatterns = [
-    url(r'^$', views.feedbackapp),
+    url(r'^$', views.feedbackapp)
 ]

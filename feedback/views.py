@@ -7,12 +7,13 @@ from .forms import ContactForm
 #    return render(request, 'feedback/feedbackapp.html')
 
 def feedbackapp(request):
-    if request.method == 'POST':
-        form = ContactForm(request.POST)
-        customername = request.POST['customername']
-        customername = request.POST['customeremail']
-        customername = request.POST['customercomment']
+    if request.method == 'GET':
+        return render(request, 'feedback/feedbackget.html')
     else:
-        form = ContactForm()
-    
-    return render(request, 'feedback/feedbackapp.html', {'form': form})
+        name = request.POST['customername']
+        email = request.POST['customeremail']
+        feedback = request.POST['customerfeedback']
+        
+        data = {'name': name, 'email': email, 'feedback': feedback}
+
+        return render(request, 'feedback/feedbackpost.html', {'data': data})

@@ -70,3 +70,4 @@ def weatherapp(request):
     
     get_displayed_cities_weather(displayed_cities)
     return render(request, 'weather/weatherapp.html', {'displayed_cities': displayed_cities})
+    

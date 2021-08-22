@@ -1,22 +1,13 @@
-<!-- howdy/templates/about.html -->
 {% extends 'base.html' %}
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8">
-        <title>About Us</title>
-    </head>
-    <body>
-        {% block content %}
-        <div class="card border-primary mb-3" style="max-width: 20rem; position: absolute; top: 50%; left: 50%; margin-right: -50%; transform: translate(-50%, -50%)">
-            <div class="card-header">About Us</div>
-            <div class="card-body">
-                <h4 class="card-title">Where Was Our Company Founded?</h4>
-                <p class="card-text">
-                    Django Weather Services (DWS) was founded in 2021, by a group of university students looking to future proof themselves. They went about his by learning how to code in Python. Django, a high-level Python based framework, was developed around three core principles: ridiculously fast, reassuringly secure, and exceedingly scalable. Utilizing Django’s API modules, DWS pulls all weather data from OpenWeatherMap, which provides current and future weather forecasts for over 200,000 cities across the globe.
-                </p>
-            </div>
+
+{% block content %}
+    <div class="card border-primary mb-3" style="max-width: 20rem; position: absolute; top: 50%; left: 50%; margin-right: -50%; transform: translate(-50%, -50%)">
+        <div class="card-header">About Us</div>
+        <div class="card-body">
+            <h4 class="card-title">Where Was Our Company Founded?</h4>
+            <p class="card-text">
+                Django Weather Services (DWS) was founded in 2021, by a group of university students looking to future proof themselves. They went about his by learning how to code in Python. Django, a high-level Python based framework, was developed around three core principles: ridiculously fast, reassuringly secure, and exceedingly scalable. Utilizing Django’s API modules, DWS pulls all weather data from OpenWeatherMap, which provides current and future weather forecasts for over 200,000 cities across the globe.
+            </p>
         </div>
-        {% endblock %}
-    </body>
-</html>
+    </div>
+{% endblock %}
