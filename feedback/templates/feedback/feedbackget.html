@@ -9,16 +9,16 @@
         {% csrf_token %}
         <div class="form-group">
             <div class="form-floating mb-3">
-                <input type="text" class="form-control" id="customername" name="customername">
+                <input type="text" class="form-control" id="customername" name="customername" required>
                 <label for="floatingInput">Customer Name</label>
             </div>
             <div class="form-floating mb-3">
-                <input type="email" class="form-control" id="customeremail" name="customeremail">
+                <input type="email" class="form-control" id="customeremail" name="customeremail" required>
                 <label for="floatingInput">Email address</label>
             </div>
             <div class="form-group">
                 <label for="customercomment" class="form-label mt-4">Feedback</label>
-                <textarea class="form-control" id="customerfeedback" rows="3" spellcheck="false" name="customerfeedback"></textarea>
+                <textarea class="form-control" id="customerfeedback" rows="3" spellcheck="false" name="customerfeedback" required></textarea>
             </div>
             <br><input type="submit" value="submit">
         </div>
