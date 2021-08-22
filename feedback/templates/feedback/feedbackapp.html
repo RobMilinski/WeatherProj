@@ -8,7 +8,34 @@
     </head>
     <body>
         {% block content %}
-        
-        {% endblock %}
+            <form method="post">
+                {% csrf_token %}
+                <div class="form-group">
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" id="floatingInput" name="customername">
+                        <label for="floatingInput">Customer Name</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input type="email" class="form-control" id="floatingInput" name="customeremail">
+                        <label for="floatingInput">Email address</label>
+                    </div>
+                    <div class="form-group">
+                        <textarea class="form-control" id="exampleTextarea" rows="3" spellcheck="false" name="customerfeedback"></textarea>
+                        <label for="textarea" class="form-label mt-4">Feedback</label>
+                    </div>
+                    <br><input type="submit" value="submit">
+                </div>
+            </form>
+            {% if customername and email and comment %}
+            <div>
+                <div>
+                    <div>
+                        <h4><span>Name :</span> {{ form.name }}</h4>
+                        <h4><span>Email :</span> {{ form.email }}</h4>
+                        <h4><span>Comment :</span> {{ form.comment}}</h4>
+                    </div>
+                </div>
+            {% endif %}
+        {% endblock content %}
     </body>
 </html>

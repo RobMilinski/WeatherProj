@@ -31,15 +31,22 @@
         {% endif %}
         </div>
     </div>
-
-    <table class="table table-hover">
-        <tr>
-            <th>City</th><th>Min Temp</th><th>Max Temp</th><th>Humidity</th>
-        </tr>
-        {% for city in displayed_cities %}
+    <div style="overflow-x:auto;">
+        <table class="table table-hover">
             <tr>
-                <td>{{ city.name }}</td><td>{{ city.temp_min }}</td><td>{{ city.temp_max }}</td><td>{{ city.humidity }}</td>
+                <th>City</th><th></th><th>Description</th>
+                <th>Feels Like</th><th>Min Temp</th><th>Max Temp</th>
+                <th>Humidity</th><th>Pressure</th><th>Dew Point</th>
+                <th>Wind</th><th>UV Index</th><th>Sunrise</th><th>Sunset</th>
             </tr>
-        {% endfor %}
-    </table>
+            {% for city in displayed_cities %}
+                <tr>
+                    <td>{{ city.name }}</td><td><img src= {{ city.icon }} alt="Image" style="width:70px"></td><td>{{ city.description }}</td>
+                    <td>{{ city.feels_like }}</td><td>{{ city.temp_min }}</td><td>{{ city.temp_max }}</td>
+                    <td>{{ city.humidity }}</td><td>{{ city.pressure }}</td><td>{{ city.dew_point }}</td>
+                    <td>{{ city.wind }}</td><td>{{ city.uv_index }}</td><td>{{ city.sunrise }}</td><td>{{ city.sunset }}</td>
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
 {% endblock %}
