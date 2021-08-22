@@ -4,7 +4,25 @@
     <nav>
         <form method="POST">
             {% csrf_token %}
-            <div>
+            <div class="form-group">
+                <p>Enter your City, Latitude and Longitude:
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control" id="floatingInput" name="city" placeholder="name@example.com">
+                    <label for="floatingInput">City</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control" id="floatingInput" name="latitude" placeholder="name@example.com">
+                    <label for="floatingInput">Latitude</label>
+                </div>
+                <div class="form-floating">
+                    <input type="text" class="form-control" id="floatingPassword" name="longitude" placeholder="Password">
+                    <label for="floatingInput">Longitude</label>
+                </div>
+                <button type="submit" class="btn btn-success">Search</button>
+                </p>
+            </div>
+            
+            <!--<div>
                 <p>Enter City: <input type="text" name="city" placeholder="Enter your City ..."> or</p>
                 <p>Enter your Longitude and Latitude:
                     <input type="text" name="latitude" placeholder="Latitude ...">
@@ -13,7 +31,7 @@
                 <div>
                     <button type="submit" class="btn btn-success">Search</button>
                 </div>
-            </div>
+            </div> -->
         </form>
     </nav>
         <br><br>
