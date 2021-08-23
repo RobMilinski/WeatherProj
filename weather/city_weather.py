@@ -22,7 +22,7 @@ class CityWeather:
         source = urllib.request.urlopen(URL).read()
         raw_weather_data = json.loads(source)
 
-        #important weather information for each location
+        #get and store weather information for a city
         self.main = str(raw_weather_data['current']['weather'][0]['main']),
         self.icon = "http://openweathermap.org/img/w/" + raw_weather_data['current']['weather'][0]['icon'] + ".png"
         self.description = str(raw_weather_data['current']['weather'][0]['description'])
