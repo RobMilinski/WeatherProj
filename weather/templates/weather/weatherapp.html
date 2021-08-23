@@ -1,39 +1,39 @@
 {% extends 'base.html' %}
+<!-- all templates pull base.html -->
 
 {% block content %}
 <div class="container-fluid">
     <div class="row">
-        <div class="col-3">
+        <div class="col-sm-3">
             <form method="POST">
                 {% csrf_token %}
-                <div class="form-group">
+                <div class="form-group"><!-- user defined city lon/lat -->
                     <p>Enter City Latitude and Longitude or <br> 
                         Choose a city from the list.
                     <div class="form-floating mb-3">
                         <input type="text" class="form-control" id="floatingInput" name="city"
-                            placeholder="name@example.com">
+                            placeholder="City">
                         <label for="floatingInput">City</label>
                     </div>
                     <div class="form-floating mb-3">
                         <input type="text" class="form-control" id="floatingInput" name="latitude"
-                            placeholder="name@example.com">
+                            placeholder="Latitude">
                         <label for="floatingInput">Latitude</label>
                     </div>
                     <div class="form-floating">
-                        <input type="text" class="form-control" id="floatingPassword" name="longitude"
-                            placeholder="Password">
+                        <input type="text" class="form-control" id="floatingInput" name="longitude"
+                            placeholder="Longitude">
                         <label for="floatingInput">Longitude</label>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group"><!-- predefined extra cities available for selection -->
                         <label for="cityselectbox" class="form-label mt-4">Select a city from the list</label>
                         <select multiple="" class="form-select" id="cityselectbox" name="cityselectbox">
-                            <option selected></option>
                             <option value='{"city":"Canberra", "lat":"-35", "lon":"149"}'>Canberra</option>
                             <option value='{"city":"Sydney", "lat":"-33.8688", "lon":"151.2093"}'>Sydney</option>
-                            <option value='{"city":"Brisbane", "lat":"-27.4705", "lon":"153.0260"}'>Brisbane</option>
-                            <option value='{"city":"Brisbane", "lat":"-27.4705", "lon":"153.0260"}'>Brisbane</option>
-                            <option value='{"city":"Brisbane", "lat":"-27.4705", "lon":"153.0260"}'>Brisbane</option>
-                            <option value='{"city":"Brisbane", "lat":"-27.4705", "lon":"153.0260"}'>Brisbane</option>
+                            <option value='{"city":"Los Angeles", "lat":"34.0522", "lon":"118.2437"}'>Los Angeles</option>
+                            <option value='{"city":"New York", "lat":"40.7128", "lon":"-74.0060"}'>New York</option>
+                            <option value='{"city":"Dubai", "lat":"25.2048", "lon":"55.2708"}'>Dubai</option>
+                            <option value='{"city":"Hong Kong", "lat":"22.3193", "lon":"114.1694"}'>Hong Kong</option>
                         </select>
                     </div>
                     <button type="submit" class="btn btn-success">Display Weather</button>
@@ -41,10 +41,10 @@
                 </div>
             </form>
         </div>
-        <div class="col-9">
+        <div class="col-sm-9"><!-- weather display column 3x as wide as selection panel -->
             <div style="overflow-x:auto;">
                 <table class="table table-hover">
-                    <tr>
+                    <tr><!-- table headers, displayed on right side column-->
                         <th>City</th>
                         <th></th>
                         <th>Description</th>
@@ -60,7 +60,7 @@
                         <th>Sunset</th>
                     </tr>
                     {% for city in displayed_cities %}
-                    <tr>
+                    <tr><!-- for each city in displayed_cities_list, displayed below data-->
                         <td>{{ city.name }}</td>
                         <td><img src={{ city.icon }} alt="Image" style="width:70px"></td>
                         <td>{{ city.description }}</td>

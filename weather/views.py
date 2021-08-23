@@ -16,8 +16,6 @@ loc8_details = CityWeather("Stonehenge", "51.1789", "-1.8262")
 loc9_details = CityWeather("Watergate Bay", "50.4429", "-5.0553")
 loc10_details = CityWeather("Birmingham", "52.4862", "-1.8904")
 
-
-
 def get_displayed_cities_weather(cities_list):
     #for each location in list, run method
     for city in cities_list:
@@ -25,7 +23,6 @@ def get_displayed_cities_weather(cities_list):
 
 def weatherapp(request):
     #list of assigned cities, user assigned to be inserted later in position 0
-    #displayed_cities = [loc1_details, loc2_details]
     displayed_cities = [loc1_details, loc2_details, loc3_details, loc4_details, loc5_details, loc6_details, loc7_details, loc8_details, loc9_details, loc10_details]
     
     if request.method == "POST":
@@ -36,12 +33,16 @@ def weatherapp(request):
             select_city = json.loads(select_box_json)
 
         if request.POST['latitude'] != '' and request.POST['longitude'] != '':
+            #if user inputs customer lat/lon
             input_city = CityWeather(request.POST['city'], request.POST['latitude'], request.POST['longitude'])
             displayed_cities.insert(0, input_city)
         elif select_city != None:
+            #if user selects city from list
             input_city = CityWeather(select_city['city'], select_city['lat'], select_city['lon'])
             displayed_cities.insert(0, input_city)
 
+    #pulls weather information for cities in list
     get_displayed_cities_weather(displayed_cities)
+    #displays updated cities weather information on weatherapp template
     return render(request, 'weather/weatherapp.html', {'displayed_cities': displayed_cities})
     
