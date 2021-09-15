@@ -2,16 +2,18 @@
 
 {% block content %}
     <!-- called if customer supplies contact information and feedback-->
-    <h2>Thank You for Your Feedback</h2>
-    <p>
-        <div>
-            Name: {{ data.name }}
-        </div>
-        <div>
-            Email: {{ data.email }}
-        </div>
-        <div>
-            Your Feedback: {{ data.feedback }}
-        </div>
-    </p>
+    <div>
+        <h2>Thank You for Your Feedback</h2>
+        <p>
+            <div>
+                Name: {{ data.name }}
+            </div>
+            <div>
+                Email: {{ data.email }}
+            </div>
+            <div>
+                Your Feedback: {{ data.feedback }}
+            </div>
+        </p>
+    </div>
 {% endblock content %}
