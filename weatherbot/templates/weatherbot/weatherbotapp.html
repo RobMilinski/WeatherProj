@@ -2,23 +2,56 @@
 
 {% block content %}
     <!-- centered panel for display -->
-    <div class="card border-danger mb-3" style="max-width: 20rem; position: absolute; top: 50%; left: 50%; margin-right: -50%; transform: translate(-50%, -50%)">
-        <div class="card-header"><img height="100" src="https://thumbs.dreamstime.com/z/grey-chat-bot-icon-isolated-white-background-chatbot-vector-227598910.jpg" alt="Generic Chatbot Logo">Ask Me About the Weather</div>
-        <div class="card-body">
-            <form action="" method="post">
-                {% csrf_token %}
-                <div>You: <input type="text" name="question" placeholder="Enter your question" required></div>
-            </form>
-            {% if question %}
+    <div class="container">
+        <div class="row">
+            <div class="col-sm">
+                <h3 class="card-header">Rob's Weather Bot</h3>
+                <div class="card-body">
+                    <form action="" method="post">
+                        {% csrf_token %}
+                        <!-- only ask user for their name on initial contact -->
+                        {% if not question %}
+                            <div>Your Name: <input type="text" name="user_name" placeholder="Enter your name" required></div>
+                        {% endif %}
+                        <div>Your Question: <input type="text" name="question" placeholder="Enter your question" required>
+                            <input type="submit" value="Submit">
+                        </div>
+                    </form>
+                    {% if question %}
+                    <p>    
+                        <div>
+                            {{user_name}}: {{question}}
+                        </div>
+                        <div>
+                            Chatbot: {{answer}}
+                        </div>
+                        <hr>
+                        <h3>Chat history</h3>
+                        <pre>   
+                            {{ chat_history }}
+                        </pre>
+                    </p>
+                    {% endif %}
+                </div>
+            </div>
+            <div class="col-sm">
+                <h2>Chatbot Help</h2>
                 <p>
-                    <tr>
-                        <td>{{name}}: </td><td>{{question}}</td>
-                    </tr>
-                    <div>
-                        <td>Bot: </td><td>{{ answer }}</td>
-                    </div>
+                    <h3>About Chatbot</h3>
+                        <div>I am trained in basic english conversation, but I love talking about the weather.</div>
+                        <div>I can tell you the weather in most major world cities.</div>
+                        <div>For example: Sydney, London, Madrid...</div>
                 </p>
-            {% endif %}
-        </div>
+                <p>
+                    <h3>Example Questions to Ask:</h3>
+                    <ul>
+                        <li>What is your name?</li>
+                        <li>What is the temperature in Sydney</li>
+                        <li>Weather in Canberra</li>
+                        <li>How are you?</li>
+                    </ul>
+                </p>
+            </div>
+          </div>
     </div>
 {% endblock %}

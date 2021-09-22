@@ -44,7 +44,7 @@ def trainBotWithCorpus(bot):
     corpus_trainer.train('chatterbot.corpus.english')
 
 def trainBotWithCustom(bot):
-    with open('nfl6.json', 'r') as jfile:
+    with open('chatbot_qa.txt', 'r') as jfile:
         qa_data= jfile.read()
 
     qa_json = json.loads(qa_data)
@@ -56,9 +56,9 @@ def trainBotWithCustom(bot):
     trainer = ListTrainer(bot)
     trainer.train(train)
 
-# trainBotWithCustom(my_bot)
-trainBotWithList(my_bot)
+trainBotWithCustom(my_bot)
+# trainBotWithList(my_bot)
 # trainBotWithCorpus(my_bot)
 
-def get_bot_response(question):
+def GetTrainedBotResponse(question):
     return my_bot.get_response(question).text

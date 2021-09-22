@@ -21,10 +21,20 @@ def GetCityWeather(city):
 def GetWeatherBotAnswer(question):
     question = question.replace("?","")
     question = question.lower()
+    # splits user question into singular words, for recognition
     words = question.split()
 
-    main_cities = ['sydney', 'canberra', 'london', 'madrid']
+    # predetermined list of major cities worldwide
+    # Django Weather Services can eventually upscale by using city name recognition with AI
+    main_cities = ['sydney', 'canberra', 'melbourne', 'perth', 'brisbane',
+            'london', 'manchester', 'belfast', 'edinburgh',
+            'tokyo', 'delhi', 'seoul', 'shanghai', 'mumbai', 'beijing', 'manila', 'osaka'
+            'cairo', 'dubai', 'dhaka', 'karachi', 'istanbul', 'kolkata', 'guangzhou',
+            'moscow', 'paris', 'bogota', 'jakarta', 'bangkok', 'amsterdam', 'madrid', 'barcelona', 'singapore',
+            'houston', 'dallas', 'miami', 'seattle', 'denver', 'atlanta'
+        ]
 
+    # checks if the user entered a city name that matches main_cities file
     question_contains_city = False
     user_city = ''
     for word in words:
@@ -32,12 +42,17 @@ def GetWeatherBotAnswer(question):
             user_city = word
             question_contains_city = True
 
+    # is the user asking about weather?
     question_contains_temperature = 'temperature' in words
     question_contains_weather = 'weather' in words
 
     do_get_weather_data = (question_contains_temperature or question_contains_weather) and question_contains_city
+    # if user entered temperature/weather and city name, function calls API
     if do_get_weather_data:
         return GetCityWeather(user_city)
+    # if entered a city not on the list
+    elif question_contains_temperature or question_contains_weather:
+        return 'I can tell you the weather in: ' + ', '.join(main_cities)
     else:
         return ''
 
