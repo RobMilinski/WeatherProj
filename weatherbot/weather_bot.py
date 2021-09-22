@@ -47,6 +47,7 @@ def GetWeatherBotAnswer(question):
     question_contains_weather = 'weather' in words
 
     do_get_weather_data = (question_contains_temperature or question_contains_weather) and question_contains_city
+
     # if user entered temperature/weather and city name, function calls API
     if do_get_weather_data:
         return GetCityWeather(user_city)

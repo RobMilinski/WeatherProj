@@ -14,5 +14,69 @@
     {
         "question": "How old are you ?", 
         "answer": "I am older than you."
+    },
+    {
+        "question": "Is it cold outside ?", 
+        "answer": "What weather information would you like to know?"
+    },
+    {
+        "question": "Humidity in city?", 
+        "answer": "How about you ask me about the temperature"
+    },
+    {
+        "question": "Where are you from?", 
+        "answer": "I am a computer creation."
+    },
+    {
+        "question": "How hot is it?", 
+        "answer": "what city would you like to know the weather about?"
+    },
+    {
+        "question": "temperature", 
+        "answer": "I need some more information"
+    },
+    {
+        "question": "I need help", 
+        "answer": "What would you like help with?"
+    },
+    {
+        "question": "Can you help me?", 
+        "answer": "Yes I can."
+    },
+    {
+        "question": "Will it rain?", 
+        "answer": "Ask me about the weather in your town and I can tell you."
+    },
+    {
+        "question": "Who made you?", 
+        "answer": "My creator is a university post graduate student."
+    },
+    {
+        "question": "Is it hot enough for the beach?", 
+        "answer": "How about you ask me about the temperature in a city."
+    },
+    {
+        "question": "Canberra", 
+        "answer": "What would you like to know"
+    },
+    {
+        "question": "How do I find the weather in my town", 
+        "answer": "Try asking me 'temperature in <insert your town name here>'"
+    },
+    {
+        "question": "Is it raining?", 
+        "answer": "You should ask me for the weather in a particular city"
+    },
+    {
+        "question": "Thank you", 
+        "answer": "You're very welcome. See you next time"
+    },
+    {
+        "question": "Goodbye friend", 
+        "answer": "Talk to you later."
+    },
+    {
+        "question": "Help", 
+        "answer": "What do you need help with?"
     }
 ]
