@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <!-- centered panel for display -->
+    <div class="card border-danger mb-3" style="max-width: 20rem; position: absolute; top: 50%; left: 50%; margin-right: -50%; transform: translate(-50%, -50%)">
+        <div class="card-header"><img height="100" src="https://thumbs.dreamstime.com/z/grey-chat-bot-icon-isolated-white-background-chatbot-vector-227598910.jpg" alt="Generic Chatbot Logo">Ask Me About the Weather</div>
+        <div class="card-body">
+            <form action="" method="post">
+                {% csrf_token %}
+                <div>You: <input type="text" name="question" placeholder="Enter your question" required></div>
+            </form>
+            {% if question %}
+                <p>
+                    <tr>
+                        <td>{{name}}: </td><td>{{question}}</td>
+                    </tr>
+                    <div>
+                        <td>Bot: </td><td>{{ answer }}</td>
+                    </div>
+                </p>
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}

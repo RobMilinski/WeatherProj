@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'feedback',
     'future',
     'weather',
+    'weatherbot',
 ]
 
 MIDDLEWARE = [

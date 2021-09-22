@@ -24,4 +24,5 @@ urlpatterns = [
     url(r'^feedback/', include('feedback.urls')),
     url(r'^future/', include('future.urls')),
     url(r'^weather/', include('weather.urls')),
+    url(r'^weatherbot/', include('weatherbot.urls')),
 ]

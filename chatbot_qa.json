@@ -1,0 +1,13 @@
+[
+    {
+        "main_category": "Small Talk", 
+        "question": "How are you today ?", 
+        "nbestanswers": [
+            "I am very well thank you, and yourself?", 
+            "Not too shabby today, you?", 
+            "I'm doing great. And You?", 
+            "I'm good thank you."
+        ], 
+        "answer": "Chatbots are always doing great.", 
+        "id": "1"
+    }, 
